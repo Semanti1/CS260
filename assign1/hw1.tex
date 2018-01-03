@@ -1,0 +1,122 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{algorithm2e}
+\begin{document}
+\title {CS 260 Homework 1}
+\author{Semanti Basu}
+\maketitle
+\section{First Section-A section header}
+Numbered Section
+\subsection{Subsection-A subsection header}
+I am a subsection
+
+\section*{Example of bulleted list}
+
+
+\begin{itemize}
+\item ice-cream
+\item soda
+\item veggies
+\item pasta
+\item bread
+\end{itemize}
+
+
+
+\section*{Example of numbered list.}
+
+
+
+
+\begin{enumerate}
+\item Data-Structures
+\item Web and Mobile app development
+\item Systems Programming
+\item Design with microcontrollers
+\item Transforms
+\item Engr 202
+\end{enumerate}
+
+
+
+\section*{Two paragraphs about me.}
+
+
+
+
+Hello, this is Simmy. I like robotics. I have done projects on autonomous drones. I have also tried using Artificial Intelligence on robots. I am part of Drexel Robotics club.
+
+My hobby is reading. I love reading books. I have had different favourites at different times. Little women,Famous five, Harry Potter, The Diary of a Young Girl, Angels and Demons,Pride and Prejudic etc
+
+\section*{Bold and Italics}
+\begin{itemize}
+\item \textbf {Bold font}
+\item \textit {Italic font}
+\end{itemize}
+
+
+
+\section*{Here is a math equation in a sentence:}
+
+
+
+
+\begin{enumerate}
+\item Example of doing integrals $\int e^{i k \theta} d \theta$
+\end{enumerate}
+
+
+\section*{Here is a math equation on a line:}
+
+
+\begin{equation}
+\sum_{k=1}^{n} k= \frac {n (n+1)}{2}
+\end{equation}
+
+
+
+\section*{Example of align.}
+
+
+
+\begin{align}
+2x+3y=10\\
+2x-3y=6\\
+4x=16\\
+x=\frac {16}{4}\\
+x=4\\
+6y=4\\
+y=\frac {4}{6}
+\end{align}
+
+
+\section*{An inline code block.}
+
+
+\begin{lstlisting}
+int sum(int a,int b)
+{
+        return a+b;
+}
+\end{lstlisting}
+
+
+\section*{Here is a pseudocode .}
+
+
+\begin{algorithm}[H]
+\KwData{integer a and array A as input}
+\KwResult{Find out if a is present in array A}
+\For{i=0,i $\le$ length(a)-1,i++}{
+\If{A[i]==a}{
+
+return True\;
+
+}
+}
+return false\;
+\caption{Searching for a given element in a given array and returning if the element exixts in array or not}
+\end{algorithm}
+\end{document}
+

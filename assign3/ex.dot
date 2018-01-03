@@ -1,0 +1,16 @@
+digraph
+{
+	rankdir=LR;
+	G -> F;
+	F -> B;
+	B -> D;
+	D -> A;
+	D -> C;
+	E;
+	E->G [label="Cross"]
+	E->F [label="Cross"]
+	G->D [label="Forward"]
+	A->B [label="Back"]
+	C->A [label="Cross"]
+	B->C [label="Forward"]
+}

@@ -1,0 +1,131 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{algorithm2e}
+\usepackage{enumitem}
+\begin{document}
+\title {CS 260 Homework 2}
+\author{Semanti Basu}
+\maketitle
+
+
+\section*{Question 1}
+\begin{itemize}
+\item g1(n) is $O(g3(n))$ for even n $\leq$ 0 and g1(n) is $\Omega(g3(n))$ for odd values of n
+\item g3(n) is $O(g1(n))$ for odd n $\geq$ 1 and g1(n) is $\Omega(g3(n))$ for even values of n
+\item g2(n) is $O(g3(n))$ for 0 $\leq$ n $\le$ 100 and g2(n) is $\Omega(g3(n))$ for n$>$100
+\item g3(n) is $O(g2(n))$ for n $>$ 100 and g3(n) is $\Omega(g2(n))$ for n$<$100
+\item g1(n) is $O(g2(n))$ for even and odd n $>$ 100 and g1(n) is $\Omega(g2(n))$ for all n except even n $<$ 100
+\item g2(n) is $O(g1(n))$ for all n except odd n$>$100 and g2(n) is $\Omega(g1(n))$ for all n except n $<$ 100
+\end{itemize}
+
+
+
+\section*{Question 2}
+\begin{enumerate}
+\item 17 is $O(1)$
+\begin{align}
+c= 17\\
+17 <= 17*1\\
+c=17\\
+no=0
+\end{align}
+c and no exist so true(proved)
+\item $\frac {n(n-1}{2}$ is $O(n^2)$
+\begin{align}
+c=\frac{1}{2}\\
+\frac {n^2}{2} - \frac{n}{2} <= n^2/2\\
+- \frac{n}{2} <= 0\\
+n>= 0\\
+c=\frac{1}{2}\\
+no=0
+\end{align}
+c and no exist so true(proved)
+\item max( $n^3$ , $10 n^2$) is $O(n^3)$
+\begin{align}
+if max=n^3\\
+c=1\\
+n^3<=n^3\\
+n=0\\
+no=0,c=1\\
+if max= 10 n^2\\
+Suppose c=10\\
+10n^2<=10n^3\\
+10n^2(1-n)<=0\\
+Thus, no=0\\
+c=10\\
+\end{align}
+c and no exist so true(proved)
+
+\item 
+\begin{align}
+c=1\\
+n^k+1=n*n^k=n^k+n^k+..n^k\\
+1^k + 2^k +...+ n^k < n^k +...n^k\\
+c=1\\
+n0=0\\
+\sum_{k=1}^{n} i^k = O(n^k+1)\\
+\end{align}
+\begin{align}
+1^k + 2^k +.....\frac{n}{2}^k....+ n^k >= \frac{n}{2}^k+....+ n^k\\
+\frac{n}{2}^k+....+ n^k>=\frac{n}{2}^k+....+ \frac{n}{2}^k\\
+\frac{n}{2}^k+....+ \frac{n}{2}^k=\frac{n}{2}^(k+1)\\
+\sum_{k=1}^{n} i^k >= \frac {n^(k+1)}{2^(k+1)}\\
+c=\frac{1}{2^k+1}\\
+n0=0\\
+\sum_{k=1}^{n} i^k=\Omega(n^k+1)\\
+\end{align}
+
+\item a polynomial cannot increase faster or slower than its highest power. So it is both $O(n^k)$ and $\Omega(n^k)$
+\end{enumerate}
+
+
+\section*{Question 3}
+
+In increasing order:
+
+$\frac{1}{3}^n$,17,log (log n),log n,$(\log n) ^2$,$n^{\frac{1}{2}}$,$ n^{\frac{1}{2}}$$(\log n) ^2$,$\frac {n}{\log n}$,n,$\frac {3}{2} ^n$
+
+\section*{Question 4}
+\begin{enumerate}
+\item 
+\begin{align}
+T(n)=T(\frac{n}{2})+ 1\\
+\end{align}
+
+\item
+Solving using Master theorem
+\begin{align}
+T(n)=T(\frac{n}{2})+ 1\\
+a=1\\
+b=2\\
+f(n)=n^0\\
+c=\log_2 1=0\\
+f(n)=n^c\\
+{\log n}^0=1\\
+T(n)=O(log n)\\
+T(n)=\Omega(log n)\\
+\end{align}
+\end{enumerate}
+
+
+
+\section*{Question 5}
+
+The loop continues to execute till end element position is reached. However, if x exists as the last element, then it will not be removed.
+This can be remedied by using for loop to execute through the entire length of list to make sure the last element is checked as well.
+
+Also, the program will not work if the loop is empty. An if statement should be introduced and deletion should be proceeded with only when list is non-empty.
+
+\section*{Question 6}
+
+ 
+\begin{align}
+END=\frac{n(n+1)}{2}+(n)\\
+FIRST=1+ \frac{n (n+1)}{2}\\
+NEXT= \frac{n(n+1)}{2}+\frac{(n-1)n}{2}+n\\
+NEXT=n(n+1)\\
+\end{align}
+
+\end{document} 
+i

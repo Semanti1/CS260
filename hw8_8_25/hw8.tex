@@ -1,0 +1,125 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{algorithm2e}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\graphicspath{./}
+\begin{document}
+\title {CS 260 Homework 8}
+\author{Semanti Basu}
+\maketitle
+
+
+\section*{Question 1}
+\subsection*{part a}
+h(1)=1 mod 7=1\\
+h(8)=8 mod 7=1\\
+h(27)=27 mod 7=6\\
+h(64)=64 mod 7=1\\
+h(125)=125 mod 7=6\\
+h(216)=216 mod 7=6\\
+h(343)=343 mod 7=0\\
+
+Open Hash Table
+
+
+
+\begin{center}
+\begin{tabular}{c|c|}
+\hline
+Row & List\\ \hline
+0$\rightarrow$ & [343]\\ \hline
+1$\rightarrow$ & [1,8,64]\\ \hline
+2$\rightarrow$ & []\\ \hline
+3$\rightarrow$ & []\\ \hline
+4$\rightarrow$ & []\\ \hline
+5$\rightarrow$ & []\\ \hline
+6$\rightarrow$ & [27,125,216]\\ \hline
+\end{tabular}
+\end{center}
+
+
+\subsection*{part b}
+
+
+Closed Hash Table
+
+1=slot 1\\
+8=slot(1+1)=slot 2\\
+27=slot 6\\
+64=slot(1+1+1)=slot 3\\
+125=slot(6+1)=slot 0\\
+216=slot(6+1+1+1+1+1)=slot 4\\
+343=slot(0+1+1+1+1+1)=slot 5\\
+
+\begin{center}
+\begin{tabular}{c|c|}
+\hline
+Slot & Number\\ \hline
+0$\rightarrow$ & 125\\ \hline
+1$\rightarrow$ & 1\\ \hline
+2$\rightarrow$ & 8\\ \hline
+3$\rightarrow$ & 64\\ \hline
+4$\rightarrow$ & 216\\ \hline
+5$\rightarrow$ & 343\\ \hline
+6$\rightarrow$ & 27\\ \hline
+\end{tabular}
+\end{center}
+
+
+
+\section*{Question 2}
+
+
+h(23)=23 mod 5=3\\
+h(48)=48 mod 5=3\\
+h(35)=35 mod 5=0\\
+h(4)=4 mod 5=4\\
+h(10)=10 mod 5=0\\
+
+23=slot 3\\
+48=slot (3+1)=slot 4\\
+35=slot 0\\
+4=slot(4+1+1)=slot 1\\
+10=slot(0+1+1)=slot 2\\
+
+\begin{center}
+\begin{tabular}{c|c|}
+\hline
+Slot & Number\\ \hline
+0$\rightarrow$ & 35\\ \hline
+1$\rightarrow$ & 4\\ \hline
+2$\rightarrow$ & 10\\ \hline
+3$\rightarrow$ & 23\\ \hline
+4$\rightarrow$ & 48\\ \hline
+\end{tabular}
+\end{center}
+
+
+
+\section*{Question 3}
+\subsection*{part a}
+
+This is not a good hash function because there are several strings which have same length. So there will be multiple collisions which will have to be dealt with.
+
+For Ex:
+
+h1("tea")=h1("you")=h1("cat")=h1("mat")=h1("rat")=h1("dog")=h1("hat")=3\\
+h1("four")=h1("roar")=h1("soar")=h1("sear")=h1("sore")=4\\
+
+
+There are a large number of collisions in each case which is not practical from a coding perspective.
+
+\subsection*{part b}
+
+This is not a good hash function because it will return a different hash for the same string. It is not guaranteed to return the same hash value. So it will be impossible to look 
+up anything in the hash table.
+
+For ex:
+
+h1("hello")=3 but h1("hello")=6 when called a second time. The function can have different values for same string, hence it is not a good hash function.
+\end{document}
+
+

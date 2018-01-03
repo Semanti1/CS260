@@ -1,0 +1,161 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{algorithm2e}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\graphicspath{./}
+\begin{document}
+\title {CS 260 Homework 6}
+\author{Semanti Basu}
+\maketitle
+
+
+\section*{Question 1}
+\subsection*{Adjacency matrix giving arc costs}
+\begin{center}
+\begin{tabular}{c|c|c|c|c|c|c|}
+\hline
+* & a & b & c & d & e & f\\ \hline
+a & 0 & 3 & $\infty$ & 4 & $\infty$ & 5\\ \hline
+b & $\infty$ & 0 & 1 & $\infty$ & $\infty$ & 1\\ \hline
+c & $\infty$ & $\infty$ & 0 & 2 & $\infty$ & $\infty$\\ \hline
+d & $\infty$ & 3 & $\infty$ & 0 & $\infty$ & $\infty$\\ \hline
+e & $\infty$ & $\infty$ & $\infty$ & 3 & 0 & 2\\ \hline
+f & $\infty$ & $\infty$ & $\infty$ & 2 & $\infty$ & 0\\ \hline
+\end{tabular}
+\end{center}
+
+
+
+
+\subsection*{Linked Adjacency List with arc costs}
+\begin{center}
+\begin{tabular}{c|c|}
+\hline
+Node & Connects To\\ \hline
+a$\rightarrow$ & (b,3),(d,4),(f,5)\\ \hline
+b$\rightarrow$ & (c,1),(f,1)\\ \hline
+c$\rightarrow$ & (d,2)\\ \hline
+d$\rightarrow$ & (b,3)\\ \hline
+e$\rightarrow$ & (f,2),(d,3)\\ \hline
+f$\rightarrow$ & (d,2)\\ \hline
+\end{tabular}
+\end{center}
+
+
+\section*{Question 2}
+
+The tasks T1,T2 etc can be the nodes on the graph. The required times can be encoded on the edges. The graph will be directed graph.
+If Ti should be completed prior to Tj, the edge should be directed from node Ti to Tj.
+
+If no parallel execution occurs, then the time taken= t1+t2+t3+...+tn
+
+Else, the shortest path  in the graph containing all the nodes will have to be found and the values on the edges of the graph added.For parallel execution critical path length will have
+to be found.
+
+If parallel execution allowed, then minimum time=MAX(t1,t2,t3...tn). In this graph, all nodes will branch from or be adjacent to one particular node. Since, parallel execution, we have to wait for the
+ longest running process to finish.
+
+The DFS algorithm visits every node and every edge. So, it can be used to calculate minimum time.O(n*tn) is the running time.
+
+\section*{Question 3}
+\begin{enumerate}
+\item b$\rightarrow$ c$\rightarrow$ d
+\item b$\rightarrow$ f$\rightarrow$ d
+\item c$\rightarrow$ d$\rightarrow$ b$\rightarrow$ f
+\end{enumerate}
+
+\section*{Question 4}
+
+\subsection*{Insert edges}
+Adjacency list uses linked list to represent all the adjacent nodes of a particular node.Let the linked list l[i] represent all the nodes adjacent to node i.
+Let l[j] represent the list of all nodes adjacent to node j. To insert an edge between nodes i and j of an undirected graph, node i has to be added to the linked list for node j. 
+Similarly node j has to be added to the adjacency list for node i.
+
+To do so, the linked list for node i containing all the nodes of the graph adjacent to node i will have to be accessed. This list has to be traversed till the end, and then node j will have
+to be inserted in the list. Similarly the linked list for node j containing all the nodes of the graph adjacent to node j will have to be accessed. This list has to be traversed till the end, 
+and then node i will have to be inserted in the list.
+
+Let there be n nodes in graph.The adjacency list representation can be considered as an array of linked lists.
+
+
+
+\begin{algorithm}[H]
+\KwData{nodes i and j}
+\KwResult{Insert an edge between nodes i and j}
+\If{i$>$n or i$<$0}{
+
+return Invalid node\;
+
+}
+\If{j$>$n or j$<$0}{
+
+return Invalid node\;
+
+}
+a=l[i]$\rightarrow$head\;
+\For{k=0,i $\le$ length(l[i])-1,k++}{
+a=a$\rightarrow$next;
+}
+a$\rightarrow$next=j\;
+b=l[j]$\rightarrow$head\;
+\For{k=0,i $\le$ length(l[j])-1,k++}{
+b=b$\rightarrow$next;
+}
+b$\rightarrow$next=i\;
+\end{algorithm}
+
+\subsection*{Delete edges}
+
+To delete an edge between nodes i and j, the algorithm should be designed to search the linked list l[i] to lookup node j and delete it. Similarly l[j] should be searched for node i and i should be
+removed from l[j].
+
+
+\begin{algorithm}[H]
+\KwData{nodes i and j}
+\KwResult{Delete an edge between nodes i and j}
+\If{i$>$n or i$<$0}{
+
+return Invalid node\;
+
+}
+\If{j$>$n or j$<$0}{
+
+return Invalid node\;
+
+}
+a=l[i]$\rightarrow$head\;
+\For{k=0,i $\le$ length(l[i])-1,k++}{
+\If{a==j}
+{
+delete j\;
+break;
+}
+a=a$\rightarrow$next;
+}
+\If{a$\rightarrow$next==NULL}{
+print Edge doesnt exist\;
+}
+b=l[j]$\rightarrow$head\;
+\For{k=0,i $\le$ length(l[j])-1,k++}{
+\If{b==j}
+{
+delete j\;
+break;
+}
+
+b=b$\rightarrow$next;
+}
+\If{b$\rightarrow$next==NULL}{
+print Edge doesnt exist\;
+}
+
+
+\end{algorithm}
+
+
+
+
+
+\end{document}

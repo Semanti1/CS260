@@ -1,0 +1,77 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{algorithm2e}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\graphicspath{./}
+\begin{document}
+\title {CS 260 Extra credit}
+\author{Semanti Basu}
+\maketitle
+
+
+\section*{Question 1}
+\subsection*{part a}
+
+a,b,c,d,e,f are considered 0,1,2,3,4,5 respectively.
+
+[0.0, 3.0, 4.0, 4.0, inf, 4.0]
+
+Predecessor=[0, 0, 1, 0, 'N', 1]
+ a to b to c. b to f. a to d.
+
+\subsection*{part b}
+
+
+Distance matrix:
+[0.0, 3.0, 4.0, 4.0, inf, 4.0]
+[inf, 0.0, 1.0, 3.0, inf, 1.0]
+[inf, 5.0, 0.0, 2.0, inf, 6.0]
+[inf, 3.0, 4.0, 0.0, inf, 4.0]
+[inf, 6.0, 7.0, 3.0, 0.0, 2.0]
+[inf, 5.0, 6.0, 2.0, inf, 0.0]
+
+
+Predecessor matrix in the order [a b c d e f] \\
+[0, 0, 1, 0, 'N', 1] \\
+['N', 1, 1, 1, 'N', 1]\\
+['N', 2, 2, 2, 'N', 2]\\
+['N', 3, 3, 3, 'N', 3]\\
+['N', 4, 4, 4, 4, 4]\\
+['N', 3, 1, 5, 'N', 5]\\
+
+
+
+\section*{Question 2}
+
+Let us consider the following scenario:
+ 
+Let A, B, C be nodes in a graph.
+
+(A,B,10)
+(B,C,8)
+(C,B,-5)
+
+Dijkstra would miss the miss the path A$\rightarrow$B$\rightarrow$C
+
+This would be because of the negative edge weight. If edge weight is less than 0, adding new edges to the shortest path makes it shorter.
+
+
+\section*{Question 3}
+
+
+Let us consider the following scenario:
+
+Let A, B, C, D be nodes in a graph.
+
+(A,B,10)
+(B,C,8)
+(C,D,-4)
+(D,B,-5)
+s algorithm will fail to find shortest path to 3 because of the negative weight cycle that exists. The algorithm will fall into an infinite loop. Thus, negative cycles do not work in floyds.
+\end{document}
+
+
+
